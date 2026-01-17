@@ -6,7 +6,14 @@ import Splash from "./Splash";
 function App() {
   // All hooks must be at the top level
   const [notFound, setNotFound] = useReactState(false);
-  const [menu, setMenu] = useState([]);
+  // Static menu for client-only app
+  const [menu] = useState([
+    { id: 1, name: "Roti", price: 10 },
+    { id: 2, name: "Rice", price: 30 },
+    { id: 3, name: "Aalu Paratha", price: 25 },
+    { id: 4, name: "Paneer Paratha", price: 40 },
+    { id: 5, name: "Sabji", price: 35 },
+  ]);
   const [cart, setCart] = useState([]);
   const [customer, setCustomer] = useState({
     name: "",
@@ -31,17 +38,13 @@ function App() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/menu")
-      .then((res) => res.json())
-      .then(setMenu);
-  }, []);
+  // No API call needed for menu
 
   const addToCart = (item) => setCart([...cart, item]);
   const handleInputChange = (e) =>
     setCustomer({ ...customer, [e.target.name]: e.target.value });
 
-  const placeOrder = async () => {
+  const placeOrder = () => {
     if (
       !customer.name ||
       !customer.address ||
@@ -49,15 +52,11 @@ function App() {
       cart.length === 0
     )
       return;
-    const res = await fetch("http://localhost:5000/api/order", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: cart, customer }),
-    });
-    const data = await res.json();
+    // Simulate order placement
     setOrderPlaced(true);
     setCart([]);
-    if (data.waUrl) window.open(data.waUrl);
+    // Optionally, show a WhatsApp link or confirmation
+    // window.open(`https://wa.me/919816699164?text=Order%20placed!`);
   };
 
   if (showSplash) return <Splash onFinish={() => setShowSplash(false)} />;
