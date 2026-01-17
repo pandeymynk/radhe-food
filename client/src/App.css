@@ -1,0 +1,130 @@
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+.nav-menu button {
+  background: none;
+  border: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 12px;
+  border-radius: 6px;
+  transition:
+    color 0.2s,
+    background 0.2s;
+}
+.nav-menu button.active,
+.nav-menu button:focus {
+  color: #27ae60;
+  background: #eafaf1;
+}
+body {
+  background: linear-gradient(120deg, #f8fafc 0%, #e0eafc 100%);
+  min-height: 100vh;
+  margin: 0;
+}
+
+.radhe-container {
+  max-width: 420px;
+  margin: 32px auto;
+  padding: 24px 18px 32px 18px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+}
+
+.radhe-title {
+  text-align: center;
+  color: #27ae60;
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.radhe-section {
+  margin-bottom: 18px;
+}
+
+.menu-list,
+.cart-list {
+  padding: 0;
+  margin: 0;
+}
+.menu-item {
+  list-style: none;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f4f8fb;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 1px 4px rgba(39, 174, 96, 0.04);
+}
+.menu-item span {
+  font-size: 1.1rem;
+}
+.menu-item button {
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.menu-item button:hover {
+  background: #219150;
+}
+
+.cart-list li {
+  list-style: none;
+  background: #eafaf1;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  padding: 7px 12px;
+  font-size: 1rem;
+}
+
+.input-row input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #d1e7dd;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f8fafc;
+}
+
+.place-order-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #27ae60 60%, #219150 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(39, 174, 96, 0.08);
+  transition: background 0.2s;
+}
+.place-order-btn:hover {
+  background: linear-gradient(90deg, #219150 60%, #27ae60 100%);
+}
+
+.order-success {
+  color: #219150;
+  margin-top: 18px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
