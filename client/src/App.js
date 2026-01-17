@@ -54,9 +54,23 @@ function App() {
       return;
     // Simulate order placement
     setOrderPlaced(true);
+    // Prepare WhatsApp message
+    const orderDetails = cart
+      .map((item) => `${item.name} (₹${item.price})`)
+      .join(", ");
+    const totalAmount = cart.reduce((sum, item) => sum + (item.price || 0), 0);
+    const message =
+      `New Order!%0A` +
+      `Name: ${customer.name}%0A` +
+      `Address: ${customer.address}%0A` +
+      `Phone: ${customer.phone}%0A` +
+      `Order: ${orderDetails}%0A` +
+      `Total: ₹${totalAmount}`;
+    // WhatsApp number (change if needed)
+    const waNumber = "919816699164";
+    const waUrl = `https://wa.me/${waNumber}?text=${message}`;
     setCart([]);
-    // Optionally, show a WhatsApp link or confirmation
-    // window.open(`https://wa.me/919816699164?text=Order%20placed!`);
+    window.open(waUrl, "_blank");
   };
 
   if (showSplash) return <Splash onFinish={() => setShowSplash(false)} />;
